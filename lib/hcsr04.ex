@@ -1,17 +1,17 @@
 defmodule Hcsr04 do
   @moduledoc """
-  A module to interface with the HC-SR04 ultrasonic sitance sensor.
+  A module to interface with the HC-SR04 ultrasonic distance sensor.
 
   WARN: Linux based systems are not fast enough to keep up with the short frequency
-  of moduleation based GPIO interfaces like the HC-SR04.
+  of modulation based GPIO interfaces like the HC-SR04.
 
-  If you need more accurate measurements, especially over time, you should favor
+  If you need more accurate measurements, especially over time, you should favour
   an I2C based distance sensor.
 
   ## Wiring
   The HC-SR04 sensors has 4 pins. VCC and GND are a given.
 
-  ECHO is a input pin receiving the signal modulation when the measurement is compelted.
+  ECHO is a input pin receiving the signal modulation when the measurement is completed.
   TRIG is a output pin triggering the measurement process.
 
   """
