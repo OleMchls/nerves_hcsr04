@@ -12,7 +12,7 @@ defmodule Hcsr04.MixProject do
       package: package(),
       deps: deps(),
       name: "Nerves_Hcsr04",
-      source_url: "https://github.com/elixir-ecto/postgrex"
+      source_url: "https://github.com/OleMchls/nerves_hcsr04"
     ]
   end
 
