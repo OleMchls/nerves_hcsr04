@@ -66,19 +66,22 @@ defmodule Hcsr04 do
     :timer.sleep(1)
     Circuits.GPIO.write(trigger, 0)
 
-    {:noreply, %{state | readers: [from | state.readers] }}
+    {:noreply, %{state | readers: [from | state.readers]}}
   end
+
   def handle_call(:read, from, %State{read_start: _} = state) do
-    {:noreply, %{state | readers: [from | state.readers] }}
+    {:noreply, %{state | readers: [from | state.readers]}}
   end
 
   @impl true
-  def handle_info({:circuits_gpio, _pin, time, 1}, state),
-    do: {:noreply, %{state | read_start: time}}
+  def handle_info({:circuits_gpio, _pin, time, 1}, state) do
+    {:noreply, %{state | read_start: time}}
+  end
 
   @impl true
-  def handle_info({:circuits_gpio, _pin, _time, 0}, %State{read_start: nil} = state),
-    do: {:noreply, state}
+  def handle_info({:circuits_gpio, _pin, _time, 0}, %State{read_start: nil} = state) do
+    {:noreply, state}
+  end
 
   def handle_info({:circuits_gpio, _pin, time, 0}, %State{read_start: start} = state) do
     handle_read(time - start, state.readers)
