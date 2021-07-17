@@ -21,7 +21,7 @@ The package can be installed by adding `nerves_hcsr04` to your list of dependenc
 ```elixir
 def deps do
   [
-    {:nerves_hcsr04, "~> 0.1.0"}
+    {:hcsr04, "~> 0.1"}
   ]
 end
 ```
